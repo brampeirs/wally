@@ -1,3 +1,11 @@
-<p>recipe item</p>
-<p>{{recipe.name}}</p>
-<p>{{recipe.description}}</p>
+<div class="recipe-item">
+  <a [routerLink]="'/recipes/123'">
+    <div class="recipe-item__image">
+      <img [alt]="'image of recipe ' + recipe.name" [src]="recipe.imagePath">
+    </div>
+    <div class="recipe-item__name">
+      {{recipe.name}}
+    </div>
+  </a>
+</div>
+
