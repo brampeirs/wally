@@ -6,7 +6,7 @@ import { PublicPageRoutes } from './views/layouts/public-page/public-page.routes
 export const AppRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'recipes',
     pathMatch: 'full'
   },
   PrivatePageRoutes,

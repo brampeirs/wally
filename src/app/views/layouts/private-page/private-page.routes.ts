@@ -6,9 +6,9 @@ export const PrivatePageRoutes = {
   component: PrivatePageComponent,
   children: [
     {
-      path: 'dashboard',
+      path: 'recipes',
       canActivate: [ AuthGuard ],
-      loadChildren: 'app/views/dashboard/dashboard.module#DashboardModule'
+      loadChildren: 'app/views/recipes/recipes.module#RecipesModule'
     }
   ]
 };
