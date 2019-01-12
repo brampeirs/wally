@@ -9,6 +9,11 @@ export const PrivatePageRoutes = {
       path: 'dashboard',
       canActivate: [ AuthGuard ],
       loadChildren: 'app/views/dashboard/dashboard.module#DashboardModule'
+    },
+    {
+      path: 'accounts',
+      canActivate: [ AuthGuard ],
+      loadChildren: 'app/views/accounts/accounts.module#AccountsModule'
     }
   ]
 };

@@ -1,45 +1,66 @@
-
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import * as firebase from 'firebase';
+import { User } from './user.model';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private router: Router) {}
+    constructor(private router: Router) {
+    }
 
-  signInByGoogle() {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then((result) => {
-      localStorage.setItem('id_token', result.credential['idToken']);
-      console.log('sign in by google, go to dashboard');
-      this.router.navigate(['/dashboard']);
-    }).catch(function(error) {
-      console.error('signIn failed', error);
-    });
-  }
+    signInByGoogle() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).then((result) => {
+            localStorage.setItem('id_token', result.credential['idToken']);
 
-  getUser() {
-    return firebase.auth().currentUser;
-  }
+            localStorage.setItem('user_uid', result.user.uid);
+            localStorage.setItem('user_display_name', result.user.displayName);
+            localStorage.setItem('user_email', result.user.email);
+            localStorage.setItem('user_phoneNumber', result.user.phoneNumber);
+            localStorage.setItem('user_photoURL', result.user.photoURL);
 
-  getUserId() {
-    return firebase.auth().currentUser.uid;
-  }
+            console.log('sign in by google, go to dashboard');
+            this.router.navigate(['/dashboard']);
+        }).catch(function (error) {
+            console.error('signIn failed', error);
+        });
+    }
 
-  isAuthenticated() {
-    return this.getToken() != null;
-  }
+    getUser() {
+        const user: User = {
+            uid: localStorage.getItem('user_uid'),
+            displayName: localStorage.getItem('user_display_name'),
+            email: localStorage.getItem('user_email'),
+            phoneNumber: localStorage.getItem('user_phoneNumber'),
+            photoURL: localStorage.getItem('user_photoURL')
+        };
+        return user;
+    }
 
-  signOut() {
-    firebase.auth().signOut();
-     localStorage.removeItem('id_token');
-     console.log('signout goto landing');
-      this.router.navigate(['landing']);
-  }
+    getUserId() {
+        return localStorage.getItem('user_uid');
+    }
 
-  getToken() {
-    return localStorage.getItem('id_token');
-  }
+    isAuthenticated() {
+        return this.getToken() != null;
+    }
+
+    signOut() {
+        firebase.auth().signOut();
+        localStorage.removeItem('id_token');
+
+        localStorage.removeItem('user_uid');
+        localStorage.removeItem('user_display_name');
+        localStorage.removeItem('user_email');
+        localStorage.removeItem('user_phoneNumber');
+        localStorage.removeItem('user_photoURL');
+        console.log('signout goto landing');
+        this.router.navigate(['landing']);
+    }
+
+    getToken() {
+        return localStorage.getItem('id_token');
+    }
 }

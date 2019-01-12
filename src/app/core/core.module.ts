@@ -3,15 +3,21 @@ import { PrivatePageComponent } from './private-page/private-page.component';
 import { PublicPageComponent } from './public-page/public-page.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     PrivatePageComponent,
-    PublicPageComponent
+    PublicPageComponent,
+    SidenavComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   exports: [
     PrivatePageComponent,
