@@ -1,9 +1,12 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Ingredient, Recipe } from './recipes.model';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable()
 export class RecipesService {
+
+
   recipeSelected = new EventEmitter();
 
   private recipes: Recipe[] = [
@@ -51,10 +54,16 @@ export class RecipesService {
     }
   ];
 
-  constructor() {}
+  constructor(private http: HttpClient) {
+
+  }
 
   public getRecipes() {
     return this.recipes.slice(); // use slice to make copy of array so you can not accidentally modify since arrays are reference types
+  }
+
+  public createRecipe() {
+    return this.http.post('https://recipes-fcf10.firebaseio.com/', this.recipes);
   }
 
 

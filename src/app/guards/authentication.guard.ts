@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
+import { AuthService } from '../auth/auth.service';
 /* import { AuthService } from '../services/authentication/auth.service'; */
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor( /*private _auth: AuthService, */
+  constructor( private _auth: AuthService,
               protected router: Router) {
   }
 
@@ -24,7 +25,7 @@ export class AuthGuard implements CanActivate {
    * @returns {boolean}
    */
   private isLoggedIn(): boolean {
-    return true;
-    // return this._auth.isAuthenticated();
+
+    return this._auth.isAuthenticated();
   }
 }
