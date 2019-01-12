@@ -25,7 +25,7 @@
         <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" [src]="user?.photoURL">
+                <img *ngIf="user && user.photoURL" alt="Image placeholder" [src]="user?.photoURL">
               </span>
           </div>
         </a>

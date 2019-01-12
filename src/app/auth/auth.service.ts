@@ -13,7 +13,10 @@ export class AuthService {
     signInByGoogle() {
         const provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then((result) => {
-            localStorage.setItem('id_token', result.credential['idToken']);
+            firebase.auth().currentUser.getIdToken( true).then((idToken) => {
+                localStorage.setItem('id_token', idToken);
+            });
+            //localStorage.setItem('id_token', result.credential['accessToken']);
 
             localStorage.setItem('user_uid', result.user.uid);
             localStorage.setItem('user_display_name', result.user.displayName);

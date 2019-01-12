@@ -7,13 +7,17 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'recipes';
+  title = 'Wally';
 
   ngOnInit(): void {
     firebase.initializeApp(
       {
-        apiKey: 'AIzaSyBH3hVYWIKjfRH1ZOh__96sMbDRJ8dKweU',
-        authDomain: 'recipes-fcf10.firebaseapp.com'
+          apiKey: "AIzaSyBH3hVYWIKjfRH1ZOh__96sMbDRJ8dKweU",
+          authDomain: "recipes-fcf10.firebaseapp.com",
+          databaseURL: "https://recipes-fcf10.firebaseio.com",
+          projectId: "recipes-fcf10",
+          storageBucket: "recipes-fcf10.appspot.com",
+          messagingSenderId: "401474415664"
       });
   }
 }

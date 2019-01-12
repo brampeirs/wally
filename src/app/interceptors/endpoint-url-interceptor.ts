@@ -15,6 +15,7 @@ export class EndpointUrlInterceptor implements HttpInterceptor {
 
     let newUrl = req.url;
     if (req.url.indexOf('http') === -1 && req.url.indexOf('./') === -1) {
+      console.log('origin', environment['origin'], environment);
       newUrl = environment['origin'] + req.url;
     } else {
       newUrl = req.url;

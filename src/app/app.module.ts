@@ -6,7 +6,7 @@ import { PreloadAllModules, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 import { httpInterceptorProviders } from './interceptors';
 import { CoreModule } from './core/core.module';
 
