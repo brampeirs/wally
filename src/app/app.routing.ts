@@ -1,6 +1,6 @@
 
-import { PrivatePageRoutes } from './layouts/private-page/private-page.routes';
-import { PublicPageRoutes } from './layouts/public-page/public-page.routes';
+import { PrivatePageRoutes } from './core/private-page/private-page.routes';
+import { PublicPageRoutes } from './core/public-page/public-page.routes';
 import { Routes } from '@angular/router';
 
 

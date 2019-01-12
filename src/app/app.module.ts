@@ -9,20 +9,18 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment.prod';
 import { httpInterceptorProviders } from './interceptors';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import { PublicPageComponent } from './layouts/public-page/public-page.component';
-import { PrivatePageComponent } from './layouts/private-page/private-page.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    PublicPageComponent,
-    PrivatePageComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule, // import HttpClientModule must come after BrowserModule.,
-    RouterModule.forRoot(AppRoutes, {preloadingStrategy: PreloadAllModules})
+    RouterModule.forRoot(AppRoutes, {preloadingStrategy: PreloadAllModules}), // preLoad lazy modules chunks afer loading app
+    CoreModule
   ],
   providers: [
     httpInterceptorProviders,
