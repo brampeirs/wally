@@ -1,14 +1,14 @@
 import { PrivatePageComponent } from './private-page.component';
- import { AuthGuard } from '../../../guards/authentication.guard';
+ import { AuthGuard } from '../../auth/auth-guard.service';
 
 export const PrivatePageRoutes = {
   path: '',
   component: PrivatePageComponent,
   children: [
     {
-      path: 'recipes',
+      path: 'dashboard',
       canActivate: [ AuthGuard ],
-      loadChildren: 'app/views/recipes/recipes.module#RecipesModule'
+      loadChildren: 'app/views/dashboard/dashboard.module#DashboardModule'
     }
   ]
 };

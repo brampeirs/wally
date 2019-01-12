@@ -5,8 +5,8 @@ export const PublicPageRoutes = {
   component: PublicPageComponent,
   children: [
     {
-      path: 'welcome',
-      loadChildren: 'app/views/welcome/welcome.module#WelcomeModule'
+      path: 'landing',
+      loadChildren: 'app/views/landing/landing.module#LandingModule'
     },
     {
      path: '404',

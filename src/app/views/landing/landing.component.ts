@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  selector: 'app-landing',
+  templateUrl: './landing.component.html',
+  styleUrls: ['./landing.component.scss']
 })
-export class WelcomeComponent implements OnInit {
+export class LandingComponent implements OnInit {
 
   constructor(private auth: AuthService) {
   }
@@ -14,8 +14,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
   }
 
-
   signIn() {
-    this.auth.googleSignin();
+    this.auth.signInByGoogle();
   }
 }
