@@ -11,7 +11,7 @@ export class AccountsComponent implements OnInit {
   constructor(private accountsService: AccountsService) { }
 
   ngOnInit() {
-    this.accountsService.getAccounts().then((res) => {
+    this.accountsService.getAccountsWithIcon().then((res) => {
       this.accounts = res;
     })
   }
