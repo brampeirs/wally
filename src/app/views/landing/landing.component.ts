@@ -8,10 +8,12 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class LandingComponent implements OnInit {
 
+  public isAuthenticated = false;
   constructor(private auth: AuthService) {
   }
 
   ngOnInit() {
+    this.isAuthenticated = this.auth.isAuthenticated();
   }
 
   signIn() {

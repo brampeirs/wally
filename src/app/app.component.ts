@@ -7,7 +7,6 @@ import * as firebase from 'firebase';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Wally';
 
   ngOnInit(): void {
     firebase.initializeApp(

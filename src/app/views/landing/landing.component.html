@@ -1,8 +1,4 @@
-<p>
-  welcome youare NOT SINED IN
-</p>
-
-<a  class="btn btn-neutral btn-icon" (click)="signIn()">
+<a *ngIf="!isAuthenticated"  class="btn btn-neutral btn-icon" (click)="signIn()">
   <span class="btn-inner--icon"><img src="../../../assets/img/icons/common/google.svg"></span>
   <span class="btn-inner--text">Sign In</span>
 </a>
